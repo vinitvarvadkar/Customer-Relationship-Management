@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <div class="container bg-light shadow-md">
+        <h1>Create Employee Record</h1>
+        <h5>Start Adding</h5>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+        
+
+        {{form.as_p}}
+
+        <br>
+
+
+       <button type="submit" class="btn-btn-primary">Submit Record &nbsp;<i class="fa fa-check" aria-hidden="true"></i></button>
+       &nbsp;
+       
+       <a href="{% url 'dashboard' %}" class="btn btn-btn-secondary"> Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+    </form>
+    </div>
+    <br>
+</body>
+{% end block %}

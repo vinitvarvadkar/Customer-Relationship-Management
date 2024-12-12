@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% block content %}
+<body>
+
+
+    {% for message in messages %}
+
+    <p id="message-timer" class="alert alert-success float-center text-center message-text">
+        {{message}} 
+    </p>
+
+    {% endfor %}
+
+
+    <div class="container bg-light shadow-md p-5 form-layout">
+        <div class="text-center">
+        <h1>Login to your Account</h1>
+    
+        <hr>
+        <br>
+    <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+            {{form.as_p}}
+
+            
+            <button type="submit" class="btn-btn-primary w-50 btn-block p-2">Login <a href="{% url 'dashbord' %}" ></a><i class="fa-solid fa-key"></i></button>
+        
+        <br>
+    
+            <p> Don't have an Account ??</p>
+            <a href="{% url 'register' %}"> Register</a>
+
+    </div>
+    </form>
+    </div>
+    
+</body>
+{{ redirect_to_login_immediately }}
+{% endblock %}
+</html>

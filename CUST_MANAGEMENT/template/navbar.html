@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-center">
+    
+    <a class="navbar-brand main-heading" href="{% url 'base' %}">
+    &nbsp; ProjectX</a>
+  
+   <button 
+   class="navbar-toggler"
+   type="button"
+   data-toggle="collapse"
+   data-target="#navbarNavDropdown"
+   aria-controls="navbarNavDropdown"
+   aria-expanded="false"
+   aria-label="toggle navigation"
+
+   >
+   <span class="navbar-toggler-icon"></span>
+</button>
+
+ <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+
+    <ul class="navbar-nav mr-auto">
+        &nbsp;&nbsp;&nbsp;
+        {% if user.is_authenticated %}
+         <li class="nav-item">
+         <a class="nav-link" href="{% url 'dashbord' %}">Dashboard&nbsp;</a>
+        </li>
+        &nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Log Out&nbsp;</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register&nbsp;</a>
+           </li>
+           &nbsp;&nbsp;&nbsp;
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Log in&nbsp;</a>
+        </li>
+
+         {% endif %}
+    </ul>
+ </div>
+</nav>

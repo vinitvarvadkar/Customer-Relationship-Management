@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    <div class="container bg-light shadow-md p-5 form-layout">
+        <br>
+        <h1>Uodate Record </h1>
+        <h5>Update your record below</h5>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off">
+
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button type="submit" class="btn btn-info">
+                Update Record &nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+
+             &nbsp;
+             <a href="{% url 'dashbord' %}" class="btn btn-secondary">
+                Return &nbsp; <i class="fa-fa-arrow-left" aria-hidden="true"></i>
+            </a>
+
+            </form>
+    </div>
+</body>
+{% endblock %}
